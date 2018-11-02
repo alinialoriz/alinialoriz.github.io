@@ -213,4 +213,7 @@ img:hover{
         margin-left:35px;
         margin-right:35px;
     }
+    .modal{
+        width: 58vw;
+    }
 }
