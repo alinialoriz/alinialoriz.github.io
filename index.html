@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Barlow:400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Banking App</h1>
+    <div id="wrapper">
+        <div class="account-profile">
+            <h2> ACCOUNT PROFILE</h2>
+            <p>Account no. <span class = "account-number">0</span></p>
+            <p>Name: <span class = "account-owner">n/a</span></p>
+            <a href="#modal"><button class="switch">Switch Account</button></a>
+        </div>
+        <div class = "cheque-account">
+            <h2>CHEQUE ACCOUNT</h2>
+            <h3 class="bal">Balance: $<span class = "cheque-bal">0</span></h3>
+            <input type = "text" id = "dep-amount-c" placeholder="0">
+            <button class = "dep-button-c">Deposit</button>
+            <input type =  "text" id = "wit-amount-c" placeholder="0">
+            <button class = "wit-button-c">Withdraw</button>
+        </div>
+        <div class = "savings-account">
+            <h2>SAVINGS ACCOUNT</h2>
+            <h3 class="bal">Balance: $<span class = "savings-bal">0</span></h3>
+            <input type = "text" id = "dep-amount-s" placeholder="0">
+            <button class="dep-button-s">Deposit</button>
+            <input type="text" id = "wit-amount-s" placeholder="0">
+            <button class="wit-button-s">Withdraw</button>
+        </div>
+    </div>
+    <div class="modal-container" id="modal">
+        <div class="modal">
+            <div class = "close">+</div>
+            <h2>SELECT ACCOUNT</h2>
+            <div class="avatar-jane">
+                <img src="avatar1.png">
+                <h3>Jane</h3>
+            </div>
+            <div class="avatar-john">
+                <img src="avatar2.png">
+                <h3>John</h3>
+            </div>
+        </div>
+    </div>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
