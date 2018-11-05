@@ -122,19 +122,14 @@ h2{
 }
 .close{
     transform: rotate(45deg);
-    font-size: 3rem;
     position: absolute;
-    top:-25px;
-    right:-20px;
-    background-color: rgb(243, 243, 243);
-    padding: 0px 14px 4px 16px;
-    border-radius: 100%;
-    border: .5px solid rgb(180, 179, 179);
+    top: 0px;
+    right: 20px;
     display: none;
+    font-size: 4rem;
 }
 .close:hover{
-    background-color: rgb(22, 21, 21);
-    color:white;
+    color:rgb(173, 12, 12);
     cursor: pointer;
 }
 .avatar-jane, .avatar-john{
