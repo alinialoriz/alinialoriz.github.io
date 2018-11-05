@@ -15,7 +15,7 @@ h1{
     color: rgb(250, 246, 246);
     -webkit-text-stroke: .5px rgb(29, 41, 54);
 }
-h2, h3, a, p{
+h2, h3, a, p, .cheque-record,.savings-record{
     font-family: 'Barlow', sans-serif;
 }
 #wrapper{
@@ -32,14 +32,16 @@ button:hover{
     cursor: pointer;
 }
 
-.cheque-account, .savings-account, .account-profile {
-    background-color: rgba(255, 255, 255, 0.4);
-    border: 2px solid rgb(248, 244, 244);
-    border-radius: 2rem;
+.cheque-account, .savings-account, .account-profile, .cheque-record, .savings-record{
     padding-top: 1rem;
     padding-left:2.5rem;
     padding-right:2.5rem;
     padding-bottom:2.5rem;
+}
+.cheque-account, .savings-account, .account-profile{
+    border: 2px solid rgb(248, 244, 244);
+    border-radius: 2rem;
+    background-color: rgba(255, 255, 255, 0.4);
 }
 .account-profile {
     width:60vw;
@@ -51,11 +53,10 @@ button:hover{
 a {
     text-decoration: none;
 }
-.cheque-account, .savings-account {
+.cheque-account, .savings-account, .cheque-transactions, .savings-transactions{
     display:inline-block;
     width:60vw;
     margin-top: 30px;
-    background-color: rgba(255, 255, 255, 0.4);
 }
 .savings-account{
     margin-bottom: 40px;
@@ -85,11 +86,32 @@ h2{
     color:white;
     border:0;
 }
-.wit-button-c, .wit-button-s{
+.wit-button-c, .wit-button-s, .log-cheque, .log-savings{
     padding-left:15px;
     padding-right:15px;
     border:0;
     background-color: white;
+}
+#transactions{
+    width:100vw;
+}
+.cheque-transactions,.savings-transactions{
+    vertical-align: top;
+}
+.log-cheque, .log-savings{
+    text-align: center;
+    padding-left:2rem;
+    padding-right:2rem;
+    font-size:1rem;
+}
+.cheque-record, .savings-record{
+    border-radius: .5rem;
+    background-color: white;
+    list-style: none;
+    text-align: left;
+    line-height: 2rem;
+    font-size: 1rem;
+    display:none;
 }
 
 /********* Modal **********/
@@ -161,6 +183,9 @@ img:hover{
     .account-profile{
         margin-top:50px;
     }
+    .cheque-record,.savings-record{
+        font-size:.8rem;
+    }
 }
 @media only screen and (min-width: 760px){
     h1{
@@ -171,12 +196,22 @@ img:hover{
         margin-top:60px;
         width:76vw;
     }
-    .cheque-account, .savings-account {
+    .cheque-account, .savings-account, .cheque-transactions, .savings-transactions{
         display:inline-block;
         width:30vw;
+    }
+    .cheque-account, .savings-account{
         margin-top:45px;
         margin-left:20px;
         margin-right:20px;
+    }
+    .cheque-transactions, .savings-transactions{
+        margin-top: -23px;
+        margin-left: 65px;
+        margin-right: 65px;
+    }
+    .cheque-record,.savings-record{
+        font-size:1rem;
     }
     .avatar-jane, .avatar-john{
         display:inline-block;
@@ -194,7 +229,7 @@ img:hover{
         margin-top:90px;
         width:72vw;
     }
-    .cheque-account, .savings-account {
+    .cheque-account, .savings-account, .cheque-transactions, .savings-transactions{
         display:inline-block;
         width:30vw;
     }

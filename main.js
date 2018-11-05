@@ -16,8 +16,7 @@ $('#dep-amount-c').keypress(function(event){
 })
 //get cheque account deposit amount
 $('.dep-button-c').click(function(){
-    cheqInput = $('#dep-amount-c').val(); 
-    $('#dep-amount-c').val('');
+    cheqInput = $('#dep-amount-c').val();
     //transform string to integer
     cheqDepAmt = parseInt (cheqInput);
     //check integer if non-negative
@@ -25,9 +24,12 @@ $('.dep-button-c').click(function(){
         //if non-negative update balace
         chequeBalance += cheqDepAmt;
         $('.cheque-bal').text(chequeBalance);
-    } else
+        $('.cheque-record').append("<li>Deposit------------" + cheqInput + "</li>"); 
+    } else{
         //if negative prompt error
         alert('INVALID INPUT\nPlease enter non-negative value.');
+    }
+    $('#dep-amount-c').val('');
     })
 
 //****Cheque-Withdraw****/
@@ -40,7 +42,6 @@ $('#wit-amount-c').keypress(function(event){
 //get cheque account deposit amount
 $('.wit-button-c').click(function(){
     cheqInput = $('#wit-amount-c').val(); 
-    $('#wit-amount-c').val('');
     //transform string to integer
     cheqWitAmt = parseInt (cheqInput);
     //check integer if non-negative
@@ -50,16 +51,21 @@ $('.wit-button-c').click(function(){
         //if true update balance
         chequeBalance -= cheqWitAmt;
         $('.cheque-bal').text(chequeBalance);
+        $('.cheque-record').append("<li>Withdraw----------(" + cheqInput + ")</li>");
         }
         else {
             //if false prompt error
             alert('INSUFFICIENT FUNDS.\nCannot process withdrawal.');
         }
-    } else
+    } else{
         //if negative prompt error
         alert('INVALID INPUT\nPlease enter non-negative value.');
+    }
+    $('#wit-amount-c').val('');
     })
-
+$('.log-cheque').click( function(){
+    $('.cheque-record').slideToggle();
+})
 //******************************************/
 //Savings Account
 //*****************************************/
@@ -70,16 +76,15 @@ var savWitAmt
 
 //****Savings-Deposit****/
 
-//trigger click on dep-button-c on enter key
+//trigger click on dep-button-s on enter key
 $('#dep-amount-s').keypress(function(event){
     if (event.keyCode === 13) {
      $('.dep-button-s').click();   
     }
 })
-//get cheque account deposit amount
+//get savings account deposit amount
 $('.dep-button-s').click(function(){
     savInput = $('#dep-amount-s').val(); 
-    $('#dep-amount-s').val('');
     //transform string to integer
     savDepAmt = parseInt (savInput);
     //check integer if non-negative
@@ -87,22 +92,24 @@ $('.dep-button-s').click(function(){
         //if non-negative update balace
         savBalance += savDepAmt;
         $('.savings-bal').text(savBalance);
-    } else
+        $('.savings-record').append("<li>Deposit------------" + savInput + "</li>"); 
+    } else{
         //if negative prompt error
         alert('INVALID INPUT\nPlease enter non-negative value.');
+    }
+    $('#dep-amount-s').val('');
     })
 
-//****Cheque-Withdraw****/
+//****Savings-Withdraw****/
 
 $('#wit-amount-s').keypress(function(event){
     if (event.keyCode === 13) {
      $('.wit-button-s').click();   
     }
 })
-//get cheque account deposit amount
+//get savings account deposit amount
 $('.wit-button-s').click(function(){
     savInput = $('#wit-amount-s').val(); 
-    $('#wit-amount-s').val('');
     //transform string to integer
     savWitAmt = parseInt (savInput);
     //check integer if non-negative
@@ -112,16 +119,21 @@ $('.wit-button-s').click(function(){
         //if true update balance
         savBalance -= savWitAmt;
         $('.savings-bal').text(savBalance);
+        $('.savings-record').append("<li>Withdraw----------(" + savInput + ")</li>");
         }
         else {
             //if false prompt error
             alert('INSUFFICIENT FUNDS.\nCannot process withdrawal.');
         }
-    } else
+    } else{
         //if negative prompt error
         alert('INVALID INPUT\nPlease enter non-negative value.');
+    }
+    $('#wit-amount-s').val('');
     })
-
+$('.log-savings').click( function(){
+    $('.savings-record').slideToggle();
+})
 //******************************************/
 //Account Profile
 //*****************************************/
@@ -133,6 +145,8 @@ $('.avatar-jane').click(function(){
     $('.savings-bal').text(2000);
     chequeBalance = parseInt($('.cheque-bal').text());
     savBalance = parseInt($('.savings-bal').text());
+    $('.savings-record').text('').hide();
+    $('.cheque-record').text('').hide();
 })
 $('.avatar-john').click(function(){
     $('.modal-container').hide();
@@ -140,6 +154,10 @@ $('.avatar-john').click(function(){
     $('.account-owner').text('John Smith');
     $('.cheque-bal').text('3000');
     $('.savings-bal').text('15000');
+    $('.savings-record').text('').hide();
+    $('.cheque-record').text('').hide();
+    chequeBalance = parseInt($('.cheque-bal').text());
+    savBalance = parseInt($('.savings-bal').text());
 })
 
 //******************************************/
@@ -152,3 +170,6 @@ $('.switch').click(function(){
 $('.close').click(function(){
     $('.modal-container').hide();
 })
+
+
+
